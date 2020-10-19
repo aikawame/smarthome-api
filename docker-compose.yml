@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  web:
+    build: .
+    environment:
+      RAILS_ENV: development
+    volumes:
+      - .:/opt/project:cached
+      - bundle:/usr/local/bundle:cached
+      - /opt/project/.git
+      - /opt/project/log
+      - /opt/project/tmp
+      - /opt/project/vendor/bundle
+    ports:
+      - 3000:3000
+    stdin_open: true
+    tty: true
+
+volumes:
+  bundle:
+    driver: local
