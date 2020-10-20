@@ -1,0 +1,38 @@
+require:
+  - rubocop-rails
+
+AllCops:
+  TargetRubyVersion: 2.7
+  TargetRailsVersion: 6.0
+  NewCops: enable
+  Exclude:
+    - 'bin/**/*'
+    - 'config/**/*'
+    - 'db/**/*'
+    - 'vendor/**/*'
+
+Rails:
+  Enabled: true
+
+# 1行あたりの文字数制限を緩和する
+Layout/LineLength:
+  Max: 120
+
+# ABCサイズの制限を緩和する
+Metrics/AbcSize:
+  Max: 20
+
+# ブロックあたりの行数制限を外す
+Metrics/BlockLength:
+  Exclude:
+    - 'app/views/**/*'
+    - 'config/routes.rb'
+    - 'spec/**/*'
+
+# メソッド行数の制限を緩和する
+Metrics/MethodLength:
+  Max: 20
+
+# ASCIIコード以外のコメントも認める
+Style/AsciiComments:
+  Enabled: false
