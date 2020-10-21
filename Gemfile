@@ -7,6 +7,7 @@ ruby '2.7.1'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
 
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'faraday'
 gem 'puma', '~> 4.1'
 gem 'rack-cors'
 
