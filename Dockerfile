@@ -6,6 +6,7 @@ RUN apk update \
         bash \
         curl \
         g++ \
+        less \
         linux-headers \
         make \
         patch \
