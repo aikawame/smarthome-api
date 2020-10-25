@@ -33,6 +33,10 @@ Metrics/BlockLength:
 Metrics/MethodLength:
   Max: 20
 
+# メソッド名の接頭辞にgetやsetを認める
+Naming/AccessorMethodName:
+  Enabled: false
+
 # ASCIIコード以外のコメントも認める
 Style/AsciiComments:
   Enabled: false
