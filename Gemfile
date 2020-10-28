@@ -18,6 +18,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'capistrano'
   gem 'listen', '~> 3.2'
   gem 'rubocop'
   gem 'rubocop-rails'
