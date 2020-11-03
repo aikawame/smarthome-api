@@ -1,4 +1,4 @@
-FROM ruby:2.7-alpine
+FROM ruby:2.7.2-alpine
 
 RUN apk update \
     && apk upgrade \
@@ -11,8 +11,7 @@ RUN apk update \
         make \
         patch \
         tzdata \
-    && ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
-
-RUN apk update
-RUN mkdir /opt/project && echo -e "install: --no-document\nupdate: --no-document" > /etc/gemrc
+    && ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
+    && mkdir /opt/project \
+    && echo -e "install: --no-document\nupdate: --no-document" > /etc/gemrc
 WORKDIR /opt/project
