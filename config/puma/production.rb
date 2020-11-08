@@ -40,3 +40,7 @@ plugin :tmp_restart
 # Daemonize the server into the background.
 #
 daemonize
+
+# Configure log files.
+#
+stdout_redirect nil, '/var/www/smarthome-api/current/log/puma.stderr.log'
