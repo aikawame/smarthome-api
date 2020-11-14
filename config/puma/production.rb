@@ -10,7 +10,7 @@ threads min_threads_count, max_threads_count
 
 # Specifies the `port` that Puma will listen on to receive requests; default is 3000.
 #
-port        ENV.fetch('PORT') { 10080 }
+# port        ENV.fetch('PORT') { 3000 }
 
 # Specifies the `environment` that Puma will run in.
 #
@@ -44,3 +44,11 @@ daemonize
 # Configure log files.
 #
 stdout_redirect nil, '/var/www/smarthome-api/current/log/puma.stderr.log'
+
+# Configure SSL binds.
+#
+ssl_bind '0.0.0.0', '8443', {
+  cert: '/var/www/smarthome-api/shared/ssl/server.crt',
+  key: '/var/www/smarthome-api/shared/ssl/server.key',
+  verify_mode: 'none'
+}
