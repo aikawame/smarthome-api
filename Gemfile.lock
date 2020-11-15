@@ -58,6 +58,7 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     airbrussh (1.4.0)
       sshkit (>= 1.6.1, != 1.7.0)
+    alexa_rubykit (0.0.3)
     ast (2.4.1)
     bootsnap (1.5.0)
       msgpack (~> 1.0)
@@ -208,6 +209,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  alexa_rubykit
   bootsnap
   byebug
   capistrano

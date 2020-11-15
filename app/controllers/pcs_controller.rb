@@ -3,11 +3,14 @@
 # PCコントローラー
 class PcsController < ApplicationController
   def poweron
-    responses = []
-    responses << Bravia.new.set_power_status(true)
-    responses << Remo.new.send_signal(Remo::SIGNALS[:amp][:power])
+    AlexaRubykit::build_request(params)
+    response = AlexaRubykit::Response.new
+    response.add_speech('オンにしました')
 
-    render json: responses
+    Bravia.new.set_power_status(true)
+    Remo.new.send_signal(Remo::SIGNALS[:amp][:power])
+
+    render json: response.build_response
   end
 
   def input_pc
