@@ -6,9 +6,11 @@ RUN apk update \
         bash \
         curl \
         g++ \
+        git \
         less \
         linux-headers \
         make \
+        openssh \
         patch \
         tzdata \
     && ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
