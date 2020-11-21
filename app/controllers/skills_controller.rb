@@ -3,7 +3,7 @@
 # スキルコントローラー
 class SkillsController < ApplicationController
   def pc
-    request = AlexaRubykit::build_request(params)
+    request = AlexaRubykit.build_request(params)
     @response = AlexaRubykit::Response.new
 
     case request.type
