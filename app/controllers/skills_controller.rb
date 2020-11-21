@@ -31,6 +31,7 @@ class SkillsController < ApplicationController
 
   def poweron
     Bravia.new.set_power_status(true)
+    WakeOnLan.send(Rails.application.credentials.windows[:mac_address])
     Remo.new.send_signal(Remo::SIGNALS[:amp][:power])
 
     @response.add_speech('オンにしました')
