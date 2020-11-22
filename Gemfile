@@ -11,6 +11,7 @@ gem 'bootsnap'
 gem 'faraday'
 gem 'puma'
 gem 'rack-cors'
+gem 'winrm'
 
 group :development, :test do
   gem 'byebug'

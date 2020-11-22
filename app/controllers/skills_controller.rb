@@ -30,14 +30,15 @@ class SkillsController < ApplicationController
   private
 
   def poweron
-    Bravia.new.set_power_status(true)
     WakeOnLan.send(Rails.application.credentials.windows[:mac_address])
+    Bravia.new.set_power_status(true)
     Remo.new.send_signal(Remo::SIGNALS[:amp][:power])
 
     @response.add_speech('オンにしました')
   end
 
   def input_windows
+    WakeOnLan.send(Rails.application.credentials.windows[:mac_address])
     Bravia.new.set_hdmi_input(4)
     Remo.new.send_signal(Remo::SIGNALS[:amp][:input_usb])
 
@@ -47,6 +48,7 @@ class SkillsController < ApplicationController
   def input_primevideo
     Bravia.new.set_active_app(Bravia::APP_URLS[:primevideo])
     Remo.new.send_signal(Remo::SIGNALS[:amp][:input_opt])
+    Windows.new.suspend
 
     @response.add_speech('PrimeVideoを開きました')
   end
@@ -54,6 +56,7 @@ class SkillsController < ApplicationController
   def input_netflix
     Bravia.new.set_active_app(Bravia::APP_URLS[:netflix])
     Remo.new.send_signal(Remo::SIGNALS[:amp][:input_opt])
+    Windows.new.suspend
 
     @response.add_speech('Netflixを開きました')
   end
