@@ -14,6 +14,11 @@ class Bravia
     )
   end
 
+  def selected_input
+    response = execute(service: 'avContent', method: 'getPlayingContentInfo', id: 103)
+    JSON.parse(response.body, symbolize_names: true)[:result].first[:source]
+  end
+
   def set_power_status(status)
     params = { status: status }
     execute(service: 'system', method: 'setPowerStatus', id: 55, params: params)

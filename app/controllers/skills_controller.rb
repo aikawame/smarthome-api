@@ -39,24 +39,28 @@ class SkillsController < ApplicationController
 
   def input_windows
     WakeOnLan.send(Rails.application.credentials.windows[:mac_address])
-    Bravia.new.set_hdmi_input(4)
+    bravia = Bravia.new
+    bravia.set_hdmi_input(4)
     Remo.new.send_signal(Remo::SIGNALS[:amp][:input_usb])
 
     @response.add_speech('Windowsを開きました')
   end
 
   def input_primevideo
-    Bravia.new.set_active_app(Bravia::APP_URLS[:primevideo])
+    bravia = Bravia.new
+    bravia.set_active_app(Bravia::APP_URLS[:primevideo])
     Remo.new.send_signal(Remo::SIGNALS[:amp][:input_opt])
-    Windows.new.suspend
+    Windows.new.suspend if input == 'extInput:hdmi'
 
     @response.add_speech('PrimeVideoを開きました')
   end
 
   def input_netflix
-    Bravia.new.set_active_app(Bravia::APP_URLS[:netflix])
+    bravia = Bravia.new
+    input = bravia.selected_input
+    bravia.set_active_app(Bravia::APP_URLS[:netflix])
     Remo.new.send_signal(Remo::SIGNALS[:amp][:input_opt])
-    Windows.new.suspend
+    Windows.new.suspend if input == 'extInput:hdmi'
 
     @response.add_speech('Netflixを開きました')
   end
