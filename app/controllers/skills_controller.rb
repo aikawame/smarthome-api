@@ -10,12 +10,12 @@ class SkillsController < ApplicationController
     when 'LAUNCH_REQUEST'
       poweron
     when 'INTENT_REQUEST'
-      case request.slots[:inputName][:value]
-      when 'windows'
+      case request.slots[:inputName][:resolutions][:resolutionsPerAuthority].first[:values].first[:value][:id]
+      when 'WINDOWS'
         input_windows
-      when 'primevideo'
+      when 'PRIMEVIDEO'
         input_primevideo
-      when 'netflix'
+      when 'NETFLIX'
         input_netflix
       else
         raise StandardError
