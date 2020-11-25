@@ -17,7 +17,7 @@ threads min_threads_count, max_threads_count
 environment ENV.fetch('RAILS_ENV') { 'production' }
 
 # Specifies the `pidfile` that Puma will use.
-pidfile ENV.fetch('PIDFILE') { 'tmp/pids/server.pid' }
+pidfile ENV.fetch('PIDFILE') { 'tmp/pids/puma.pid' }
 
 # Specifies the number of `workers` to boot in clustered mode.
 # Workers are forked web server processes. If using threads and workers together
@@ -41,9 +41,14 @@ plugin :tmp_restart
 #
 daemonize
 
+# Use `path` as the file to store the server info state.
+# This is used by `pumactl` to query and control the server.
+#
+state_path '/var/www/smarthome-api/shared/tmp/pids/puma.state'
+
 # Configure log files.
 #
-stdout_redirect nil, '/var/www/smarthome-api/current/log/puma.stderr.log'
+stdout_redirect '/var/www/smarthome-api/shared/log/puma.stdout.log', '/var/www/smarthome-api/shared/log/puma.stderr.log'
 
 # Configure SSL binds.
 #
