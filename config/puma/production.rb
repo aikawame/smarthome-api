@@ -48,7 +48,7 @@ state_path '/var/www/smarthome-api/shared/tmp/pids/puma.state'
 
 # Configure log files.
 #
-stdout_redirect '/var/www/smarthome-api/shared/log/puma.stdout.log', '/var/www/smarthome-api/shared/log/puma.stderr.log'
+stdout_redirect nil, nil
 
 # Configure SSL binds.
 #
