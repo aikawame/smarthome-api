@@ -40,3 +40,7 @@ Naming/AccessorMethodName:
 # ASCIIコード以外のコメントも認める
 Style/AsciiComments:
   Enabled: false
+
+# クラスやモジュールのネスト表記を認める
+Style/ClassAndModuleChildren:
+  Enabled: false
