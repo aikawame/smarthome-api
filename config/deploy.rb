@@ -9,10 +9,10 @@ set :linked_files, %w[config/master.key]
 set :linked_dirs, %w[log tmp/pids]
 
 # 初回デプロイ時にエラーになる…
-set :puma_conf, "#{current_path}/config/puma/production.rb"
+set :puma_conf, "#{current_path}/config/puma.rb"
 
 set :rbenv_type, :user
-set :rbenv_ruby, '2.7.2'
+set :rbenv_ruby, '3.0.0'
 
 set :ssh_options, {
   user: 'pi',
