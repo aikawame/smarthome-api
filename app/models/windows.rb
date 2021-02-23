@@ -2,11 +2,9 @@
 
 # Windows
 class Windows
-  BASE_URL = 'http://192.168.0.11:5985/wsman'
-
   def initialize
     @conn = WinRM::Connection.new(
-      endpoint: 'http://192.168.0.11:5985/wsman',
+      endpoint: 'http://192.168.0.5:5985/wsman',
       user: Rails.application.credentials.windows[:user],
       password: Rails.application.credentials.windows[:password]
     )

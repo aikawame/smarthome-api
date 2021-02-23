@@ -9,7 +9,7 @@ class Bravia
 
   def initialize
     @faraday = Faraday.new(
-      url: 'http://192.168.0.12/sony',
+      url: 'http://192.168.0.6/sony',
       headers: { 'X-Auth-PSK' => Rails.application.credentials.bravia[:preshared_key] }
     )
   end
